@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Paint Layer Project</title>
+</head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144583286-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-144583286-1', { 'optimize_id': 'GTM-W9SH8LT'});
+</script>
+
+<!-- Anti-flicker snippet (recommended)  -->
+<style>.async-hide { opacity: 0 !important} </style>
+<script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+})(window,document.documentElement,'async-hide','dataLayer',4000,
+{'OPT_CONTAINER_ID':true});</script>
+
+
+
+
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6XB5CS"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+     
+
+  <div class="starter">
+    <button  id="99" onclick="getMoving()" style="position: absolute;  width:150px;height:100px;">Start</button>   
+  </div>
+
+  <div class="main">
+	<div id="paint">
+	</div>
+	<script src="jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="experiment.js"></script>
+  <script type="text/javascript" src="scroll.js"></script>
+  <script type="text/javascript" src="timer.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="paint.css" />
+
+  <div id="buttons">
+    <svg width="400" height="310" style="position: absolute; right: 110px; top: 80px;">
+  <rect width="350" height="130" style="fill:#3E4551;stroke-width:3;stroke:rgb(0,0,0)" /> 
+  </svg>
+
+	<button id='2' class="myButton"  onclick="rectangle()" style="position: absolute; right: 170px; top: 90px; width:100px;height:100px; ">&#11036;</button>
+	<button id='5' class="myButton"  onclick="circle()" style="position: absolute; right: 280px; top: 90px; width:100px;height:100px;">&#11096;</button>
+	<button id='10' class="myButton"  onclick="undo()" style="position: absolute; right: 390px; top: 90px; width:100px;height:100px;">&#11119;</button>
+	<button id='15' class="myButton"  onclick="scrollOneDown()" style="position: absolute; right: 80px; top: 500px; width:100px;height:100px;"><font size="6">&#11107;</font></button>
+	<button id='16' class="myButton"  onclick="scrollTenDown()" style="position: absolute; right: 80px; top: 610px; width:100px;height:100px; "><font size="6">&#11143;</font></button>
+	<button id='17' class="myButton"  onclick="scrollOneUp()" style="position: absolute; right: 80px; top: 380px; width:100px;height:100px;"><font size="6">&#11105;</font></button>
+	<button id='18' class="myButton"  onclick="scrollTenUp()" style="position: absolute; right: 80px; top: 270px; width:100px;height:100px;"><font size="6">&#11141;</font></button>
+	<button id='19' class="myButton"  onclick="switchLayer(); adjust()" style="position: absolute; right: 330px; top: 265px; width:100px;height:100px;"><font size="10">+</font></button>
+  <button id='19' class="myButton"  onclick="removeLayer(); adjust()" style="position: absolute; right: 440px; top: 265px; width:100px;height:100px;"><font size="10">&#11197;</font></button>
+	</div>
+
+	<table border=2 bgcolor=#FFFFFF style="position: relative; visibility: hidden; " >
+	<td><div onclick = "color('#0000ff')" style ="width:100px;height:100px;background-color:#0000ff"></div><td>
+	<td><div onclick = "color('#009fff')" style ="width:100px;height:100px;background-color:#009fff"></div><td>
+	<tr>
+	<td><div onclick = "color('#0fffff')" style ="width:100px;height:100px;background-color:#0fffff"></div><td>
+	<td><div onclick = "color('#bfffff')" style ="width:100px;height:100px;background-color:#bfffff"></div><td>
+	</tr>
+	</table>
+<!-- Editable table -->
+<svg width="517" height="480" style="position: absolute; right: 60px; top: 250px; z-index: -1;">
+  <rect width="730" height="470" style="fill:#3E4551;stroke-width:3;stroke:rgb(0,0,0)" /> 
+  </svg>
+  <svg  id="100" width="517" height="480" style="position: absolute; right: 60px; top: 250px; z-index: 1;">
+  <rect width="730" height="470" style="fill:#3E4551;stroke-width:3;stroke:rgb(0,0,0)" /> 
+  </svg>
+<div class="scrollertime card text-white bg-dark mb-3" style=" margin-top:100px; width: 25%; left: 900px;">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Layers</h3>
+  <button id='111' class="btn btn-primary btn-lg"  onmouseover="scrollOneDownHover()" onmouseout="clearScroll()" style="position: absolute; background-color: Transparent; left: 0px; top: 310px; width:350px;height:30px;"><font size="6"></font></button>
+  <button id='121' class="btn btn-primary btn-lg"  onmouseover="scrollOneUpHover()" onmouseout="clearScroll()" style="position: absolute; background-color: Transparent; left: 0px; top: 0px; width:350px;height:30px;"><font size="6"></font></button>
+
+  <div class="card-body ">
+    <div id="table" class="table-editable">
+      <div class="table-wrapper-scroll-y my-custom-scrollbar" id="content"  style="scrollbar">
+      <table class="table  table-bordered table-responsive-md  text-center">
+        <thead >
+        </thead>
+        <tbody class = "table table-dark">
+          <tr>
+            <td><input type="checkbox" name="record"></td>
+            <td class="pt-3-half" contenteditable="true">1</td>
+            <td class="pt-3-half" contenteditable="true">Background</td>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- Editable table -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script> 
+    <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      $('tbody').sortable();
+    </script>
+
+
+
+
+
+</body>
+</html>
